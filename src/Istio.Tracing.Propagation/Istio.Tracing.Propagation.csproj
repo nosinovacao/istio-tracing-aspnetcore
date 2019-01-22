@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Enables propagation of ISTIO tracing headers in ASP.Net Core.</Description>
+    <AssemblyName>Istio.Tracing.Propagation</AssemblyName>
+    <PackageId>Istio.Tracing.Propagation.AspNetCore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>NOS Inovação</Authors>
+    <PackageTags>istio tracing propagation headers b3 trace telemetry http aspnet asp.net core aspnetcore</PackageTags>
+    <PackageProjectUrl>https://github.com/nosinovacao/istio-tracing-aspnetcore</PackageProjectUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Company>NOS Inovação</Company>
+    <Copyright>Copyright © NOS Inovação 2018-$([System.DateTime]::UtcNow.Year)</Copyright>
+    <GenerateAssemblyCompanyAttribute>true</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>true</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>
