@@ -9,6 +9,8 @@
     <Authors>NOS Inovação</Authors>
     <PackageTags>istio tracing propagation headers b3 trace telemetry http aspnet asp.net core aspnetcore</PackageTags>
     <PackageProjectUrl>https://github.com/nosinovacao/istio-tracing-aspnetcore</PackageProjectUrl>
+    <PackageReleaseNotes>Check https://github.com/nosinovacao/istio-tracing-aspnetcore/blob/master/CHANGELOG.md for release notes.</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/nosinovacao/istio-tracing-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Company>NOS Inovação</Company>
     <Copyright>Copyright © NOS Inovação 2018-$([System.DateTime]::UtcNow.Year)</Copyright>

@@ -1,0 +1,24 @@
+language: csharp
+solution: istio-tracing-aspnetcore.sln
+mono: none
+dotnet: 2.2
+os:
+  - linux
+dist: xenial
+
+script:
+  - dotnet build istio-tracing-aspnetcore.sln -c Release
+  - dotnet test -c Release --no-build istio-tracing-aspnetcore.sln /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
+after_script:
+  - bash <(curl -s https://codecov.io/bash)
+
+deploy:
+  skip_cleanup: true
+  on:
+    condition: "$TRAVIS_TAG =~ ^v\\d\\.\\d\\.\\d.*$"
+  provider: script
+  script: |
+    export Version=`echo $TRAVIS_TAG | grep -oP '(?<=v).*'`
+    dotnet pack -c Release /p:Version=$Version
+    dotnet nuget push **/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
