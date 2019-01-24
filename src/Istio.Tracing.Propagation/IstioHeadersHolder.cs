@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Istio.Tracing.Propagation
 {
-    public class IstioHeadersHolder
+    public class IstioHeadersHolder : IIstioHeadersHolder
     {
         public string RequestId { get; set; }
         public string B3TraceId { get; set; }

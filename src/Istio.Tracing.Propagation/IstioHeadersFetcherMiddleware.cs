@@ -16,8 +16,8 @@ namespace Istio.Tracing.Propagation
         {
             this.next = next ?? throw new ArgumentNullException(nameof(next));
         }
-    
-        public Task InvokeAsync(HttpContext context, IstioHeadersHolder istioHeaders)
+
+        public Task InvokeAsync(HttpContext context, IIstioHeadersHolder istioHeaders)
         {
 
             istioHeaders.RequestId = GetHeader(context, IstioHeaders.REQUEST_ID);
@@ -36,7 +36,9 @@ namespace Istio.Tracing.Propagation
         {
             if (context.Request.Headers.TryGetValue(headerName, out var values))
             {
-                return values.FirstOrDefault();
+                var firstValue = values.FirstOrDefault();
+                if (!string.IsNullOrWhiteSpace(firstValue))
+                    return firstValue;
             }
 
             return null;

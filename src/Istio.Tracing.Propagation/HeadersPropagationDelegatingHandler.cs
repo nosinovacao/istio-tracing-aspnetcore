@@ -24,7 +24,7 @@ namespace Istio.Tracing.Propagation
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var istioHeaders = httpContextAccessor.HttpContext?.RequestServices.GetService<IstioHeadersHolder>();
+            var istioHeaders = httpContextAccessor.HttpContext?.RequestServices.GetService<IIstioHeadersHolder>();
 
             if (istioHeaders != null)
             {

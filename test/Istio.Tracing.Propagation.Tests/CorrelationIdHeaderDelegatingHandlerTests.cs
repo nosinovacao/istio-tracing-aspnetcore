@@ -37,7 +37,7 @@ namespace Istio.Tracing.Propagation.Tests
 
             var serviceProvider = new Mock<IServiceProvider>();
             serviceProvider
-                .Setup(s => s.GetService(typeof(IstioHeadersHolder)))
+                .Setup(s => s.GetService(typeof(IIstioHeadersHolder)))
                 .Returns(headersHolder);
 
             var accessor = new Mock<IHttpContextAccessor>();
@@ -94,7 +94,7 @@ namespace Istio.Tracing.Propagation.Tests
 
             var serviceProvider = new Mock<IServiceProvider>();
             serviceProvider
-                .Setup(s => s.GetService(typeof(IstioHeadersHolder)))
+                .Setup(s => s.GetService(typeof(IIstioHeadersHolder)))
                 .Returns(headersHolder);
 
             var accessor = new Mock<IHttpContextAccessor>();
@@ -114,13 +114,15 @@ namespace Istio.Tracing.Propagation.Tests
             Assert.NotNull(result);
             Assert.NotNull(resultRequest);
 
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.REQUEST_ID));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.B3_TRACE_ID));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.B3_SPAN_ID));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.B3_PARENT_SPAN_ID));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.B3_SAMPLED));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.B3_FLAGS));
-            Assert.Empty(resultRequest.Headers.GetValues(IstioHeaders.OT_SPAN_CONTEXT));
+            IEnumerable<string> notUsed;
+
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.REQUEST_ID, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.B3_TRACE_ID, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.B3_SPAN_ID, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.B3_PARENT_SPAN_ID, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.B3_SAMPLED, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.B3_FLAGS, out notUsed));
+            Assert.False(resultRequest.Headers.TryGetValues(IstioHeaders.OT_SPAN_CONTEXT, out notUsed));
         }
 
         public class TestHandler : DelegatingHandler

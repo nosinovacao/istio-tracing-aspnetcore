@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{07C31E4F-058A-4C07-B023-088A3C0D1E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istio.Tracing.Propagation", "src\Istio.Tracing.Propagation\Istio.Tracing.Propagation.csproj", "{7D397762-E221-494E-B650-B8BB6C8915C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Istio.Tracing.Propagation", "src\Istio.Tracing.Propagation\Istio.Tracing.Propagation.csproj", "{7D397762-E221-494E-B650-B8BB6C8915C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9514F7C3-31D1-4995-987E-DAE82D4DD146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istio.Tracing.Propagation.Tests", "test\Istio.Tracing.Propagation.Tests\Istio.Tracing.Propagation.Tests.csproj", "{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Istio.Tracing.Propagation.Tests", "test\Istio.Tracing.Propagation.Tests\Istio.Tracing.Propagation.Tests.csproj", "{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Istio.Tracing.Propagation.IntegrationTests", "test\Istio.Tracing.Propagation.IntegrationTests\Istio.Tracing.Propagation.IntegrationTests.csproj", "{D7133A06-4BEB-4F21-BEA9-77278796B49B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7D397762-E221-494E-B650-B8BB6C8915C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -48,9 +47,28 @@ Global
 		{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82}.Release|x64.Build.0 = Release|Any CPU
 		{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82}.Release|x86.ActiveCfg = Release|Any CPU
 		{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82}.Release|x86.Build.0 = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|x64.Build.0 = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Debug|x86.Build.0 = Debug|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|x64.ActiveCfg = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|x64.Build.0 = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7D397762-E221-494E-B650-B8BB6C8915C8} = {07C31E4F-058A-4C07-B023-088A3C0D1E9D}
 		{9B4C4AB8-9BE6-4538-8274-DAE6267FFC82} = {9514F7C3-31D1-4995-987E-DAE82D4DD146}
+		{D7133A06-4BEB-4F21-BEA9-77278796B49B} = {9514F7C3-31D1-4995-987E-DAE82D4DD146}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {192AE9F8-08ED-4495-A239-D420DCCFF494}
 	EndGlobalSection
 EndGlobal

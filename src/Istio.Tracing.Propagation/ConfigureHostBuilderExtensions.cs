@@ -23,6 +23,8 @@ namespace Microsoft.AspNetCore.Hosting
                 services.TryAddTransient<IstioHeadersFetcherMiddleware>();
                 services.TryAddTransient<HeadersPropagationDelegatingHandler>();
 
+                services.TryAddScoped<IIstioHeadersHolder, IstioHeadersHolder>();
+
                 // This will setup everything automagically
                 services.AddSingleton<IHttpMessageHandlerBuilderFilter, HeadersPropagationMessageHandlerBuilderFilter>();
                 services.AddSingleton<IStartupFilter, IstioHeadersFetcherMiddlewareStartupFilter>();
