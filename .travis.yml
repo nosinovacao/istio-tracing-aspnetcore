@@ -12,13 +12,15 @@ script:
 
 after_script:
   - bash <(curl -s https://codecov.io/bash)
-
+before_deploy:
+  - echo "TRAVIS_TAG=$TRAVIS_TAG" 
+  - VERSION=`echo $TRAVIS_TAG | grep -oP '(?<=v).*'`
+  - echo $VERSION
+  - dotnet pack -c Release /p:Version=$VERSION
 deploy:
   skip_cleanup: true
   on:
-    condition: "$TRAVIS_TAG =~ ^v\\d\\.\\d\\.\\d.*$"
+    tags: true
+    condition: "$TRAVIS_TAG =~ ^v[0-999].[0-999].[0-999].*$"
   provider: script
-  script: |
-    export Version=`echo $TRAVIS_TAG | grep -oP '(?<=v).*'`
-    dotnet pack -c Release /p:Version=$Version
-    dotnet nuget push **/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
+  script: dotnet nuget push **/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
