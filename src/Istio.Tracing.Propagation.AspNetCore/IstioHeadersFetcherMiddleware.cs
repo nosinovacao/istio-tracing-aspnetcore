@@ -8,15 +8,31 @@ using System.Threading.Tasks;
 
 namespace Istio.Tracing.Propagation
 {
+    /// <summary>
+    /// Plugs into the ASP.Net core middleware pipeline to extract the istio headers from incoming requests.
+    /// </summary>
     public class IstioHeadersFetcherMiddleware
     {
         private readonly RequestDelegate next;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IstioHeadersFetcherMiddleware"/> class.
+        /// </summary>
+        /// <param name="next">The next middleware in the pipeline.</param>
+        /// <exception cref="ArgumentNullException">next</exception>
         public IstioHeadersFetcherMiddleware(RequestDelegate next)
         {
             this.next = next ?? throw new ArgumentNullException(nameof(next));
         }
 
+        /// <summary>
+        /// Extracts the istio headers from the request and adds them to the headers holder.
+        /// </summary>
+        /// <param name="context">The current http context.</param>
+        /// <param name="istioHeaders">The istio headers holder for the current request.</param>
+        /// <returns>
+        /// The task object representing the asynchronous operation.
+        /// </returns>
         public Task InvokeAsync(HttpContext context, IIstioHeadersHolder istioHeaders)
         {
 
@@ -32,7 +48,7 @@ namespace Istio.Tracing.Propagation
         }
 
 
-        public string GetHeader(HttpContext context, string headerName)
+        private string GetHeader(HttpContext context, string headerName)
         {
             if (context.Request.Headers.TryGetValue(headerName, out var values))
             {

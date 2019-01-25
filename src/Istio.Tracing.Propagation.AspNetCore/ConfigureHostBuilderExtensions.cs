@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.AspNetCore.Hosting
 {
+    /// <summary>
+    /// Adds extensions to the IWebHostBuilder.
+    /// </summary>
     public static class ConfigureHostBuilderExtensions
     {
         /// <summary>

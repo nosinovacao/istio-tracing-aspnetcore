@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{07C31E4F-058A-4C07-B023-088A3C0D1E9D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Istio.Tracing.Propagation", "src\Istio.Tracing.Propagation\Istio.Tracing.Propagation.csproj", "{7D397762-E221-494E-B650-B8BB6C8915C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Istio.Tracing.Propagation.AspNetCore", "src\Istio.Tracing.Propagation.AspNetCore\Istio.Tracing.Propagation.AspNetCore.csproj", "{7D397762-E221-494E-B650-B8BB6C8915C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9514F7C3-31D1-4995-987E-DAE82D4DD146}"
 EndProject

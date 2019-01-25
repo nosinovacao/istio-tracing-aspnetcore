@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Enables propagation of ISTIO tracing headers in ASP.Net Core.</Description>
-    <AssemblyName>Istio.Tracing.Propagation</AssemblyName>
+    <AssemblyName>Istio.Tracing.Propagation.AspNetCore</AssemblyName>
     <PackageId>Istio.Tracing.Propagation.AspNetCore</PackageId>
     <Version>1.0.0</Version>
     <Authors>NOS Inovação</Authors>
     <PackageTags>istio tracing propagation headers b3 trace telemetry http aspnet asp.net core aspnetcore</PackageTags>
     <PackageProjectUrl>https://github.com/nosinovacao/istio-tracing-aspnetcore</PackageProjectUrl>
-    <PackageReleaseNotes>Check https://github.com/nosinovacao/istio-tracing-aspnetcore/blob/master/CHANGELOG.md for release notes.</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/nosinovacao/istio-tracing-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>Check https://github.com/nosinovacao/istio-tracing-aspnetcore/releases for release notes.</PackageReleaseNotes>
+    <PackageLicense>https://github.com/nosinovacao/istio-tracing-aspnetcore/blob/master/LICENSE</PackageLicense>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Company>NOS Inovação</Company>
     <Copyright>Copyright © NOS Inovação 2018-$([System.DateTime]::UtcNow.Year)</Copyright>
