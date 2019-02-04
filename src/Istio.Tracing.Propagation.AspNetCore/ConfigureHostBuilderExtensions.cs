@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Http;
 using Istio.Tracing.Propagation;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Hosting
 {
@@ -23,6 +24,8 @@ namespace Microsoft.AspNetCore.Hosting
 
             return hostBuilder.ConfigureServices((services) =>
             {
+                services.AddHttpContextAccessor();
+
                 services.TryAddTransient<IstioHeadersFetcherMiddleware>();
                 services.TryAddTransient<HeadersPropagationDelegatingHandler>();
 

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Http;
 using Moq;
@@ -30,12 +31,13 @@ namespace Istio.Tracing.Propagation.Tests
             var serviceCollection = new MockServiceCollection();
             configActionPassed(serviceCollection);
 
-            Assert.Equal(5, serviceCollection.Count);
+            Assert.Equal(6, serviceCollection.Count);
             Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(IstioHeadersFetcherMiddleware) && d.Lifetime == ServiceLifetime.Transient));
             Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(HeadersPropagationDelegatingHandler) && d.Lifetime == ServiceLifetime.Transient));
             Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(IIstioHeadersHolder) && d.ImplementationType == typeof(IstioHeadersHolder) && d.Lifetime == ServiceLifetime.Scoped));
             Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(IStartupFilter) && d.ImplementationType == typeof(IstioHeadersFetcherMiddlewareStartupFilter) && d.Lifetime == ServiceLifetime.Singleton));
             Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(IHttpMessageHandlerBuilderFilter) && d.ImplementationType == typeof(HeadersPropagationMessageHandlerBuilderFilter) && d.Lifetime == ServiceLifetime.Singleton));
+            Assert.Equal(1, serviceCollection.Count(d => d.ServiceType == typeof(IHttpContextAccessor) && d.ImplementationType == typeof(HttpContextAccessor) && d.Lifetime == ServiceLifetime.Singleton));
         }
 
         [Fact]
