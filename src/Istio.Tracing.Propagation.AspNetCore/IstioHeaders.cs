@@ -15,7 +15,7 @@ namespace Istio.Tracing.Propagation
         /// <summary>
         /// The b3 trace identifier
         /// </summary>
-        public const string B3_TRACE_ID = "x-b3-trace-id";
+        public const string B3_TRACE_ID = "x-b3-traceid";
 
         /// <summary>
         /// The b3 span identifier
