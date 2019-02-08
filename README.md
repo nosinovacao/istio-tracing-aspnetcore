@@ -21,11 +21,11 @@ WebHost.CreateDefaultBuilder(args)
     .PropagateIstioHeaders();
 ```
 
-## Usage with HttpClientFactory
-If you are using the HttpClientFactory extensions to create your HttpClient's you are ready to go and you can see your applications tracing and telemtry on ISTIO jaeger! 😊
+### Usage with HttpClientFactory
+If you are using the HttpClientFactory extensions to create your HttpClient's you are ready to go and you can see your applications tracing and telemetry on ISTIO jaeger! 😊
 
 ### Usage without HttpClientFactory
-Since you are not using the  `HttpClientFactory` integration you need to explicitely add the `CorrelationIdHeaderDelegatingHandler` to your HttpClients:
+If you are not using the  `HttpClientFactory` integration you need to explicitely add the `CorrelationIdHeaderDelegatingHandler` to your HttpClients:
 
 ```csharp
 public class SomeClass 
