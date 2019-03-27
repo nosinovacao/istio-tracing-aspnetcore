@@ -30,11 +30,11 @@ If you are not using the  `HttpClientFactory` integration you need to explicitel
 ```csharp
 public class SomeClass 
 {
-    public SomeClass(string connectionString, CorrelationIdHeaderDelegatingHandler correlationDelegatingHandler) {
+    public SomeClass(string connectionString, HeadersPropagationDelegatingHandler propagationDelegatingHandler) {
         // We need to set the InnerHandler to the default HttpClient one.
-        correlationDelegatingHandler.InnerHandler = new HttpClientHandler();
+        propagationDelegatingHandler.InnerHandler = new HttpClientHandler();
         // This ensures all outgoing requests will contain the Correlation Id header
-        var client = new HttpClient(correlationDelegatingHandler);
+        var client = new HttpClient(propagationDelegatingHandler);
     }
 }
 ```
